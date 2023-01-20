@@ -11,8 +11,10 @@ yarn
 yarn dev
 
 -limpeza de arquivos
+delet tudo dentro da public, delet pasta assets, app css, apptsx, index css
 
 -styled components
+yarn add styled-components
 yarn add @types/styled-components -D
 
 yarn add react-router-dom
