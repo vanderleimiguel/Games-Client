@@ -1,14 +1,15 @@
 import { FormInput } from "../../atoms/input";
+import { StyledForm, StyledLoginForm } from "./styles";
 
 export function LoginForm() {
   return (
-    <div>
+    <StyledLoginForm>
       <h2>Login</h2>
-      <form>
+      <StyledForm onSubmit={handleSubmit} error={error}>
         <input />
         <input />
         <button>Login</button>
-      </form>
-    </div>
+      </StyledForm>
+    </StyledLoginForm>
   );
 }
