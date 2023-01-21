@@ -1,3 +1,5 @@
+https://xbox-live-api.onrender.com/api
+
 -Instalar yarn
 yarn create vite
 
@@ -16,5 +18,8 @@ delet tudo dentro da public, delet pasta assets, app css, apptsx, index css
 -styled components
 yarn add styled-components
 yarn add @types/styled-components -D
+
+-React icons
+yarn add react-icons
 
 yarn add react-router-dom
