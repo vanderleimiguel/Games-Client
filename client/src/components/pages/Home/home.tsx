@@ -1,31 +1,30 @@
+import { getProfiles } from "../../../mocks/profiles";
 import { ProfileCard } from "../profileCard/profileCard";
 import { ProfileCardListDiv } from "./styles";
+import { useEffect, useState } from "react";
+import { Profile } from "../../../utils/types/profile";
 
 export function Home() {
+  const [profiles, setProfiles] = useState<Profile[]>([]);
+
+  async function getProfilesInfo() {
+    const allProfiles = await getProfiles();
+    setProfiles(allProfiles);
+  }
+
+  useEffect(() => {
+    getProfilesInfo();
+  }, []);
+
   return (
     <ProfileCardListDiv>
-      <ProfileCard
-        id={"12345ffgg"}
-        Title={"testetitle"}
-        ImageURL={
-          "https://ironstudios.vteximg.com.br/arquivos/ids/306037-650-650/174004_0.jpg?v=637954667482070000"
-        }
-      />
-      <ProfileCard
-        id={"12345ffgg"}
-        Title={"testetitle"}
-        ImageURL={"imageurlteste"}
-      />
-      <ProfileCard
-        id={"12345ffgg"}
-        Title={"testetitle"}
-        ImageURL={"imageurlteste"}
-      />
-      <ProfileCard
-        id={"12345ffgg"}
-        Title={"testetitle"}
-        ImageURL={"imageurlteste"}
-      />
+      {profiles.map((Profile) => (
+        <ProfileCard
+          id={Profile.id}
+          Title={Profile.Title}
+          ImageURL={Profile.ImageURL}
+        />
+      ))}
     </ProfileCardListDiv>
   );
 }
