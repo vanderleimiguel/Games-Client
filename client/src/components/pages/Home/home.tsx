@@ -1,5 +1,5 @@
 import { getProfiles } from "../../../mocks/profiles";
-import { ProfileCard } from "../profileCard/profileCard";
+import { ProfileCard } from "../../molecules/profileCard/profileCard";
 import { ProfileCardListDiv } from "./styles";
 import { useEffect, useState } from "react";
 import { Profile } from "../../../utils/types/profile";
