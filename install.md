@@ -24,3 +24,6 @@ yarn add react-icons
 
 -react router dom
 yarn add react-router-dom
+
+-axios
+yarn add axios

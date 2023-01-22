@@ -28,12 +28,13 @@ export function LoginForm() {
 
     const userData = await api.login(loginPayload);
 
+    console.log(userData);
     setLoading(false);
-    if (userData.statusCode) {
+    if (!userData) {
       setError(true);
       return;
     } else {
-      navigate("/profile");
+      navigate("/home");
     }
   }
 

@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { Login } from "./components/pages/login/login";
 import { GlobalStyle, theme } from "./global-styles";
-import { Profile } from "../src/components/pages/profile/profile";
+import { Home } from "./components/pages/Home/home";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/home" element={<Home />} />
         </Routes>
       </BrowserRouter>
       <GlobalStyle />
