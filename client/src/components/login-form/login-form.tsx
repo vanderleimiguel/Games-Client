@@ -1,8 +1,8 @@
 import { FormEvent, useState } from "react";
-import { FormInput } from "../../atoms/input";
+import { FormInput } from "../atoms/input";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { StyledForm, StyledLoginForm } from "./styles";
-import { api } from "../../../utils/api/api";
+import { api } from "../../utils/api/api";
 import { useNavigate } from "react-router-dom";
 import { Loading } from "../loading/loading";
 

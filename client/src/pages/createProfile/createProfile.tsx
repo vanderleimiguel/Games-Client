@@ -7,9 +7,11 @@ export function CreateProfile() {
     <div>
       <button
         onClick={() => {
-          navigate("/");
+          navigate("/home");
         }}
-      ></button>
+      >
+        Go to home
+      </button>
     </div>
   );
 }

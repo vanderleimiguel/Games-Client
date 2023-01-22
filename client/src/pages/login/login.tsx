@@ -1,4 +1,4 @@
-import { LoginForm } from "../../molecules/login-form/login-form";
+import { LoginForm } from "../../components/login-form/login-form";
 import { StyledLoginPage } from "./styles";
 
 export function Login() {

@@ -1,4 +1,4 @@
-import { Profile } from "../../../utils/types/profile";
+import { Profile } from "../../utils/types/profile";
 import { ProfileCardSection } from "./style";
 
 export function ProfileCard({ id, Title, ImageURL }: Profile) {

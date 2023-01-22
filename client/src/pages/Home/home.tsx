@@ -1,8 +1,8 @@
-import { getProfiles } from "../../../mocks/profiles";
-import { ProfileCard } from "../../molecules/profileCard/profileCard";
+import { getProfiles } from "../../mocks/profiles";
+import { ProfileCard } from "../../components/profileCard/profileCard";
 import { ProfileCardListDiv } from "./styles";
 import { useEffect, useState } from "react";
-import { Profile } from "../../../utils/types/profile";
+import { Profile } from "../../utils/types/profile";
 
 export function Home() {
   const [profiles, setProfiles] = useState<Profile[]>([]);
