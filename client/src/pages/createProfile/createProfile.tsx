@@ -16,8 +16,10 @@ export function CreateProfile() {
       ImageURL: e.currentTarget.profileImageUrl.value,
     };
 
-    await api.createProfile(newProfile);
-    navigate("/home");
+    const profile = await api.createProfile(newProfile);
+    if (profile) {
+      navigate("/home");
+    }
   }
 
   return (

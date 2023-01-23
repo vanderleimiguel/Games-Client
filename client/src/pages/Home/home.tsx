@@ -10,7 +10,6 @@ export function Home() {
   const idAtual = "2cc3678c-470c-4ad0-ae26-42c7687e0757";
 
   async function getProfilesInfo(idAtual: string) {
-    console.log(idAtual);
     const allProfiles = await api.getProfiles(idAtual);
     setProfiles(allProfiles ?? []);
   }

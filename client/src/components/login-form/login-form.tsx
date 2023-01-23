@@ -1,5 +1,4 @@
 import { FormEvent, useState } from "react";
-import { FormInput } from "../atoms/input";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { StyledForm, StyledLoginForm } from "./styles";
 import { api } from "../../utils/api/api";
@@ -27,8 +26,6 @@ export function LoginForm() {
     };
 
     const userData = await api.login(loginPayload);
-
-    console.log(userData.user.id);
 
     setLoading(false);
     if (!userData) {

@@ -40,9 +40,6 @@ export const api = {
     try {
       const response = await axios.post("/auth", { Email, Password });
       localStorage.setItem("token", response.data.token);
-
-      const idAtual = response.data.user.id;
-      console.log(idAtual);
       return response.data;
     } catch (err) {
       alert(err);
