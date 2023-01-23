@@ -1,19 +1,22 @@
-import { getProfiles } from "../../mocks/profiles";
 import { ProfileCard } from "../../components/profileCard/profileCard";
 import { ProfileCardListDiv } from "./styles";
 import { useEffect, useState } from "react";
 import { Profile } from "../../utils/types/profile";
+import { api } from "../../utils/api/api";
 
 export function Home() {
   const [profiles, setProfiles] = useState<Profile[]>([]);
 
-  async function getProfilesInfo() {
-    const allProfiles = await getProfiles();
-    setProfiles(allProfiles);
+  const idAtual = "2cc3678c-470c-4ad0-ae26-42c7687e0757";
+
+  async function getProfilesInfo(idAtual: string) {
+    console.log(idAtual);
+    const allProfiles = await api.getProfiles(idAtual);
+    setProfiles(allProfiles ?? []);
   }
 
   useEffect(() => {
-    getProfilesInfo();
+    getProfilesInfo(idAtual);
   }, []);
 
   return (

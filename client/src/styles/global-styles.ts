@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -16,6 +16,19 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${(props) => props.theme.darkTheme.bg};
         color: ${(props) => props.theme.darkTheme.fg};
     }
+    #root {
+        display: flex;
+        justify-content: space-between;
+        min-height: 100vh;
+    }
+`;
+
+export const Content = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 `;
 
 const colors = {

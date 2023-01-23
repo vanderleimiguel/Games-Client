@@ -28,7 +28,8 @@ export function LoginForm() {
 
     const userData = await api.login(loginPayload);
 
-    console.log(userData);
+    console.log(userData.user.id);
+
     setLoading(false);
     if (!userData) {
       setError(true);
@@ -46,7 +47,7 @@ export function LoginForm() {
         <StyledLoginForm>
           <h2>Login</h2>
           <StyledForm onSubmit={handleSubmit} error={error}>
-            <input placeholder="Seu email" name="email" />
+            <input placeholder="Seu email" name="email" type="email" required />
             <div>
               <input
                 placeholder="Sua senha"

@@ -5,7 +5,7 @@ export const HeaderComponent = styled.header`
   width: 100%;
   justify-content: space-between;
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(50, 0, 0, 0.9);
 `;
 
 export const HeaderLogo = styled.section`

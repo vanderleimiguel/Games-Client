@@ -1,4 +1,6 @@
 import axios from "axios";
+import { profileList } from "../../mocks/profileList";
+import { Profile, ProfileInput } from "../types/profile";
 import { LoginRequest } from "../types/requests";
 
 axios.defaults.baseURL = "https://xbox-live-api.onrender.com";
@@ -32,53 +34,40 @@ axios.interceptors.response.use(
   }
 );
 
-// login de usuario
 export const api = {
+  // login de usuario
   login: async ({ Email, Password }: LoginRequest) => {
     try {
       const response = await axios.post("/auth", { Email, Password });
       localStorage.setItem("token", response.data.token);
+
+      const idAtual = response.data.user.id;
+      console.log(idAtual);
       return response.data;
     } catch (err) {
       alert(err);
     }
   },
 
-  // Profiles
+  // Perfis home
+  getProfiles: async (userId: string): Promise<Profile[] | undefined> => {
+    try {
+      const profiles = await axios.get("/profile/" + userId);
+      return profiles.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
 
-  // getProfiles: async () => {
-  //   try {
-  //     const response = await axios.get("/classroom");
-  //     return response.data;
-  //   } catch (err: any) {
-  //     alert(err);
-  //   }
-  // },
-
-  // createProfile: async (payload: CreateClassroomPayload) => {
-  //   try {
-  //     const response = await axios.post("/classroom", payload);
-  //     return response.data;
-  //   } catch (err) {
-  //     alert(err);
-  //   }
-  // },
-
-  // updateProfile: async (payload: UpdateClassroomPayload) => {
-  //   try {
-  //     const response = await axios.patch("/profile/", payload);
-  //     return response.data;
-  //   } catch (err) {
-  //     alert(err);
-  //   }
-  // },
-
-  // deleteProfile: async (payload: string) => {
-  //   try {
-  //     const response = await axios.delete(`/profile/${payload}`);
-  //     return response.data;
-  //   } catch (err) {
-  //     alert(err);
-  //   }
-  // },
+  // create profile
+  createProfile: async (
+    profile: ProfileInput
+  ): Promise<Profile | undefined> => {
+    try {
+      const newProfile = await axios.post("/profile", profile);
+      return newProfile.data;
+    } catch (err) {
+      alert(err);
+    }
+  },
 };

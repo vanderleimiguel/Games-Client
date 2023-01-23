@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   HeaderButtons,
   HeaderComponent,
@@ -8,12 +8,19 @@ import {
 } from "./styles";
 
 export default function Header() {
+  const navigate = useNavigate();
+
   return (
     <HeaderComponent>
       <HeaderLogo>
-        <Link to="/">
+        <Link to="/home">
           <h1>Xbox Live</h1>
-          <img src="" alt="logo" />
+          <img
+            src="./public/control.png"
+            alt="logo"
+            height="30px"
+            width="30px"
+          />
         </Link>
       </HeaderLogo>
       <HeaderSearch>
@@ -21,6 +28,13 @@ export default function Header() {
       </HeaderSearch>
       <HeaderButtons>
         <div>
+          <button
+            onClick={() => {
+              navigate("/create-profile");
+            }}
+          >
+            Cadastrar Perfil
+          </button>
           <button>Jogos</button>
           <button>Sair</button>
         </div>

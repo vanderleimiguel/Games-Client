@@ -30,8 +30,9 @@ export const ContentDiv = styled.div`
   }
   button {
     display: flex;
+    margin: 3px;
     height: 25px;
-    width: 55px;
+    width: 100%;
     border-radius: 10px;
     background-color: whitesmoke;
     color: black;

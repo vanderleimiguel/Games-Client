@@ -3,3 +3,8 @@ export type Profile = {
   Title: string;
   ImageURL: string;
 };
+
+export type ProfileInput = {
+  Title: string;
+  ImageURL: string;
+};

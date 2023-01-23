@@ -7,6 +7,8 @@ export const FooterComponent = styled.footer`
   width: 100%;
   height: 3rem;
   background-color: rgba(0, 0, 0, 0.9);
+  bottom: 0;
+  position: fixed;
   a {
     text-decoration: none;
     color: white;
