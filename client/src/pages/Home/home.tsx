@@ -3,11 +3,12 @@ import { ProfileCardListDiv } from "./styles";
 import { useEffect, useState } from "react";
 import { Profile } from "../../utils/types/profile";
 import { api } from "../../utils/api/api";
+import { useParams } from "react-router-dom";
 
 export function Home() {
   const [profiles, setProfiles] = useState<Profile[]>([]);
 
-  const idAtual = "2cc3678c-470c-4ad0-ae26-42c7687e0757";
+  const { id } = useParams();
 
   async function getProfilesInfo(idAtual: string) {
     const allProfiles = await api.getProfiles(idAtual);
@@ -15,7 +16,7 @@ export function Home() {
   }
 
   useEffect(() => {
-    getProfilesInfo(idAtual);
+    getProfilesInfo(id ?? "");
   }, []);
 
   return (

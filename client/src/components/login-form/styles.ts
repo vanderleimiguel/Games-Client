@@ -8,7 +8,7 @@ export const StyledLoginForm = styled.div`
   width: 80%;
   max-width: 400px;
   border: solid 1px ${(props) => props.theme.lightTheme.bg};
-  height: 600px;
+  height: 400px;
   h2 {
     margin: 20px;
   }

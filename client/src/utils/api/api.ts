@@ -67,4 +67,15 @@ export const api = {
       alert(err);
     }
   },
+
+  deleteProduct: async (profileId: string): Promise<boolean | undefined> => {
+    try {
+      const isDeleted = await axios.delete("/profile/" + profileId);
+      if (isDeleted.status === 200) {
+        return true;
+      }
+    } catch (err) {
+      alert(err);
+    }
+  },
 };

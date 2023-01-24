@@ -4,7 +4,7 @@ export const ProfileCardSection = styled.section`
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 450px;
+  height: 300px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 15px;
   margin: 15px;

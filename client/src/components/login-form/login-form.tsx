@@ -26,13 +26,14 @@ export function LoginForm() {
     };
 
     const userData = await api.login(loginPayload);
+    const id = userData.user.id;
 
     setLoading(false);
     if (!userData) {
       setError(true);
       return;
     } else {
-      navigate("/home");
+      navigate("/home/" + id);
     }
   }
 
