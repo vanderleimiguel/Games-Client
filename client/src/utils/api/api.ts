@@ -68,10 +68,12 @@ export const api = {
     }
   },
 
-  deleteProduct: async (profileId: string): Promise<boolean | undefined> => {
+  deleteProfile: async (profileId: string): Promise<boolean | undefined> => {
     try {
+      console.log(profileId);
       const isDeleted = await axios.delete("/profile/" + profileId);
-      if (isDeleted.status === 200) {
+      console.log(isDeleted.status);
+      if (isDeleted.status === 204) {
         return true;
       }
     } catch (err) {

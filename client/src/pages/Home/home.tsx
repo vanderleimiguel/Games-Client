@@ -7,6 +7,11 @@ import { useParams } from "react-router-dom";
 
 export function Home() {
   const [profiles, setProfiles] = useState<Profile[]>([]);
+  const [control, setControl] = useState<boolean>(false);
+
+  function updatePage() {
+    setControl(!control);
+  }
 
   const { id } = useParams();
 
@@ -17,7 +22,7 @@ export function Home() {
 
   useEffect(() => {
     getProfilesInfo(id ?? "");
-  }, []);
+  }, [control]);
 
   return (
     <ProfileCardListDiv>
@@ -26,6 +31,7 @@ export function Home() {
           id={Profile.id}
           Title={Profile.Title}
           ImageURL={Profile.ImageURL}
+          update={updatePage}
         />
       ))}
     </ProfileCardListDiv>

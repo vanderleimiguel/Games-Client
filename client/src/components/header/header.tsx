@@ -15,7 +15,6 @@ export default function Header() {
       <HeaderLogo>
         <Link to="/home">
           <h1>Xbox Live</h1>
-          {/* <img src="./control.png" alt="logo" height="30px" width="30px" /> */}
         </Link>
       </HeaderLogo>
       <HeaderSearch>
