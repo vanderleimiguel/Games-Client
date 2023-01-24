@@ -27,3 +27,6 @@ yarn add react-router-dom
 
 -axios
 yarn add axios
+
+- sweetalerts
+  yarn add sweetalert

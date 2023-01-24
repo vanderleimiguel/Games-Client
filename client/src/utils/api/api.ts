@@ -2,9 +2,19 @@ import axios from "axios";
 import { profileList } from "../../mocks/profileList";
 import { Profile, ProfileInput } from "../types/profile";
 import { LoginRequest } from "../types/requests";
+import swal from "sweetalert";
 
 axios.defaults.baseURL = "https://xbox-live-api.onrender.com";
 axios.defaults.headers.post["Content-Type"] = "application/json";
+
+function handleError(text: string, description: string) {
+  swal({
+    title: text,
+    text: description,
+    icon: "warning",
+    timer: 5000,
+  });
+}
 
 // verificar tokem se é valido atraves do interceptor
 axios.interceptors.request.use(
@@ -41,8 +51,8 @@ export const api = {
       const response = await axios.post("/auth", { Email, Password });
       localStorage.setItem("token", response.data.token);
       return response.data;
-    } catch (err) {
-      alert(err);
+    } catch (err: any) {
+      handleError("Erro ao efetuar login", err.response.data.message[0]);
     }
   },
 
@@ -51,8 +61,11 @@ export const api = {
     try {
       const profiles = await axios.get("/profile/" + userId);
       return profiles.data;
-    } catch (err) {
-      alert(err);
+    } catch (err: any) {
+      handleError(
+        "Erro ao buscar todos os perfis",
+        err.response.data.message[0]
+      );
     }
   },
 
@@ -63,8 +76,8 @@ export const api = {
     try {
       const newProfile = await axios.post("/profile", profile);
       return newProfile.data;
-    } catch (err) {
-      alert(err);
+    } catch (err: any) {
+      handleError("Erro ao criar perfil", err.response.data.message[0]);
     }
   },
 
@@ -76,8 +89,8 @@ export const api = {
       if (isDeleted.status === 204) {
         return true;
       }
-    } catch (err) {
-      alert(err);
+    } catch (err: any) {
+      handleError("Erro ao deletar Perfil", err.response.data.message[0]);
     }
   },
 };

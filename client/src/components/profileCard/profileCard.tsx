@@ -1,6 +1,7 @@
 import { api } from "../../utils/api/api";
 import { Profile } from "../../utils/types/profile";
 import { Buttons, ButtonsDiv, ProfileCardSection } from "./style";
+import swal from "sweetalert";
 
 interface CardProps extends Profile {
   update: () => void;
@@ -8,11 +9,34 @@ interface CardProps extends Profile {
 
 export function ProfileCard({ id, Title, ImageURL, update }: CardProps) {
   async function DeleteCard() {
-    const isDeleted = await api.deleteProfile(id);
-    console.log(isDeleted);
-    if (isDeleted) {
-      update();
-    }
+    swal({
+      title: "Deletar Produto?",
+      text: "Tem certeza que deseja deletar este perfil?",
+      icon: "warning",
+      dangerMode: true,
+      buttons: {
+        cancel: {
+          text: "Cancelar",
+          value: null,
+          visible: true,
+          closeModal: true,
+          className: "",
+        },
+        confirm: {
+          text: "Confirmar",
+          value: true,
+          visible: true,
+          closeModal: true,
+        },
+      },
+    }).then(async (res) => {
+      if (res) {
+        const isDeleted = await api.deleteProfile(id);
+        if (isDeleted) {
+          update();
+        }
+      }
+    });
   }
 
   return (
