@@ -26,7 +26,9 @@ export function LoginForm() {
     };
 
     const userData = await api.login(loginPayload);
+
     const id = userData.user.id;
+    localStorage.setItem("id", id);
 
     setLoading(false);
     if (!userData) {

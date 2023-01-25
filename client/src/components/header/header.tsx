@@ -9,11 +9,12 @@ import {
 
 export default function Header() {
   const navigate = useNavigate();
+  const id = localStorage.getItem("id");
 
   return (
     <HeaderComponent>
       <HeaderLogo>
-        <Link to="/home">
+        <Link to={"/home/" + id}>
           <h1>Xbox Live</h1>
         </Link>
       </HeaderLogo>

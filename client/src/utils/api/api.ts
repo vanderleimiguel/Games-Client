@@ -81,6 +81,7 @@ export const api = {
     }
   },
 
+  // delete profile
   deleteProfile: async (profileId: string): Promise<boolean | undefined> => {
     try {
       console.log(profileId);
@@ -91,6 +92,30 @@ export const api = {
       }
     } catch (err: any) {
       handleError("Erro ao deletar Perfil", err.response.data.message[0]);
+    }
+  },
+
+  // getProfileById: async (profileId: string): Promise<Profile | undefined> => {
+  //   try {
+  //     const profile = await axios.get("/profile/" + profileId);
+  //     return profile.data;
+  //   } catch (err) {
+  //     alert(err);
+  //   }
+  // },
+
+  updateProfile: async (
+    profileId: Profile,
+    profile: ProfileInput
+  ): Promise<Profile | undefined> => {
+    try {
+      const updatedProfile = await axios.patch(
+        "/profile/" + profileId.id,
+        profile
+      );
+      return updatedProfile.data;
+    } catch (err: any) {
+      handleError("Erro ao atualizar o perfil", err.response.data.message[0]);
     }
   },
 };

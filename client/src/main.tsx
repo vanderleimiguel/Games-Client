@@ -19,10 +19,11 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
             <Route path="/" element={<Login />} />
             <Route path="/home/:id" element={<Home />} />
             <Route path="/create-profile" element={<CreateProfile />} />
+            <Route path="/update/:id" element={<CreateProfile />} />
           </Routes>
         </Content>
       </BrowserRouter>
-      <Footer />
+      {/* <Footer /> */}
       <GlobalStyle />
     </ThemeProvider>
   </React.StrictMode>

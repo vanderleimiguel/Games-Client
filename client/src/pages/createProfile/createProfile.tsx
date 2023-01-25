@@ -1,5 +1,5 @@
-import { FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { FormEvent, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { profileList } from "../../mocks/profileList";
 import { ProfileInput } from "../../utils/types/profile";
 import { ContentDiv } from "./styles";
@@ -7,6 +7,7 @@ import { api } from "../../utils/api/api";
 
 export function CreateProfile() {
   const navigate = useNavigate();
+  const { id } = useParams();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -16,9 +17,17 @@ export function CreateProfile() {
       ImageURL: e.currentTarget.profileImageUrl.value,
     };
 
-    const profile = await api.createProfile(newProfile);
-    if (profile) {
-      navigate("/home");
+    let profileResponse;
+    if (id) {
+      const profileToUpdate = { ...newProfile, id: id };
+      profileResponse = await api.updateProfile(profileToUpdate, newProfile);
+    } else {
+      profileResponse = await api.createProfile(newProfile);
+    }
+
+    const idProfile = localStorage.getItem("id");
+    if (profileResponse) {
+      navigate("/home/" + idProfile);
     }
   }
 
