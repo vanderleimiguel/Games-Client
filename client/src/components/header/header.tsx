@@ -14,24 +14,41 @@ export default function Header() {
   return (
     <HeaderComponent>
       <HeaderLogo>
-        <Link to={"/home/" + id}>
-          <h1>Xbox Live</h1>
-        </Link>
+        {localStorage.getItem("token") ? (
+          <Link to={"/home/" + id}>
+            <h1>Xbox Live</h1>
+          </Link>
+        ) : (
+          <Link to="/">
+            <h1>Xbox Live</h1>
+          </Link>
+        )}
       </HeaderLogo>
       <HeaderSearch>
         <input type="text" placeholder="Procure seu perfil" />
       </HeaderSearch>
       <HeaderButtons>
         <div>
-          <button
-            onClick={() => {
-              navigate("/create-profile");
-            }}
-          >
-            Cadastrar Perfil
-          </button>
-          <button>Jogos</button>
-          <button>Sair</button>
+          {localStorage.getItem("token") ? (
+            <button
+              onClick={() => {
+                navigate("/create-profile");
+              }}
+            >
+              Cadastrar Perfil
+            </button>
+          ) : null}
+
+          {localStorage.getItem("token") ? (
+            <button
+              onClick={() => {
+                localStorage.removeItem("token");
+                navigate("/");
+              }}
+            >
+              Sair
+            </button>
+          ) : null}
         </div>
       </HeaderButtons>
     </HeaderComponent>

@@ -4,10 +4,18 @@ import { useEffect, useState } from "react";
 import { Profile } from "../../utils/types/profile";
 import { api } from "../../utils/api/api";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function Home() {
+  const navigate = useNavigate();
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [control, setControl] = useState<boolean>(false);
+
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    navigate("/");
+  }
 
   function updatePage() {
     setControl(!control);

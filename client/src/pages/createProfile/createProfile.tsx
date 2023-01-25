@@ -33,13 +33,13 @@ export function CreateProfile() {
 
   return (
     <ContentDiv>
-      <h2>Cadastro de Perfil</h2>
+      <h2>{id ? "Atualizar Perfil" : "Cadastro de Perfil"}</h2>
       <form onSubmit={handleSubmit}>
         <label>Nome do Perfil</label>
         <input type="text" name="profileTitle" required></input>
         <label>Imagem do Perfil</label>
         <input type="text" name="profileImageUrl" required></input>
-        <button type="submit">Cadastrar</button>
+        <button type="submit">{id ? "Atualizar" : "Cadastrar"}</button>
       </form>
     </ContentDiv>
   );
