@@ -13,7 +13,7 @@ export function ProfileCard({ id, Title, ImageURL, update }: CardProps) {
 
   async function DeleteCard() {
     swal({
-      title: "Deletar Produto?",
+      title: "Deletar Perfil?",
       text: "Tem certeza que deseja deletar este perfil?",
       icon: "warning",
       dangerMode: true,
