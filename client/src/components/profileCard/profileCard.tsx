@@ -49,14 +49,14 @@ export function ProfileCard({ id, Title, ImageURL, update }: CardProps) {
       <ButtonsDiv>
         <Buttons
           color="blue"
-          width="50px"
+          width="80px"
           onClick={() => {
             navigate("/update/" + id);
           }}
         >
           Editar
         </Buttons>
-        <Buttons color="red" width="50px" onClick={DeleteCard}>
+        <Buttons color="red" width="80px" onClick={DeleteCard}>
           Deletar
         </Buttons>
       </ButtonsDiv>

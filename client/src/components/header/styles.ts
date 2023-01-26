@@ -5,7 +5,7 @@ export const HeaderComponent = styled.header`
   width: 100%;
   justify-content: space-between;
   padding: 10px;
-  background-color: rgba(50, 0, 0, 0.9);
+  background-color: #2915e8;
 `;
 
 export const HeaderLogo = styled.section`
@@ -20,6 +20,9 @@ export const HeaderLogo = styled.section`
   }
   h1 {
     padding-right: 10px;
+    :hover {
+      color: #15e0e8;
+    }
   }
 `;
 
@@ -44,5 +47,10 @@ export const HeaderButtons = styled.section`
     background-color: transparent;
     color: white;
     margin: 0px 5px 0px 5px;
+    font-size: 25px;
+
+    :hover {
+      color: #15e0e8;
+    }
   }
 `;

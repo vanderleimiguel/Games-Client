@@ -95,15 +95,6 @@ export const api = {
     }
   },
 
-  // getProfileById: async (profileId: string): Promise<Profile | undefined> => {
-  //   try {
-  //     const profile = await axios.get("/profile/" + profileId);
-  //     return profile.data;
-  //   } catch (err) {
-  //     alert(err);
-  //   }
-  // },
-
   updateProfile: async (
     profileId: Profile,
     profile: ProfileInput

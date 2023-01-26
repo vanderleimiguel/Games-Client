@@ -32,11 +32,11 @@ export const Content = styled.div`
 `;
 
 const colors = {
-  lightPrimary: "#D9D9D9",
-  lightSecondary: "#8C8C8C",
+  lightPrimary: "#15E0E8",
+  lightSecondary: "#1F71DB",
   middle: "#595959",
-  darkPrimary: "#0D0D0D",
-  darkSecondary: "#404040",
+  darkPrimary: "#163BF2",
+  darkSecondary: "#15E0E8",
 };
 
 export const theme = {

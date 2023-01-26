@@ -9,17 +9,20 @@ export const ContentDiv = styled.div`
   justify-content: center;
   h2 {
     margin: 20px;
+    font-size: 35px;
   }
   form {
     display: flex;
     flex-direction: column;
     width: 30%;
+    font-size: 20px;
   }
   input {
     border-radius: 10px;
     color: black;
     padding-left: 5px;
     width: 100%;
+    font-size: 20px;
   }
   section {
     display: flex;
@@ -43,5 +46,6 @@ export const ContentDiv = styled.div`
     :hover {
       background-color: blue;
     }
+    font-size: 25px;
   }
 `;

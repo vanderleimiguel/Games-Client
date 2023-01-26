@@ -63,7 +63,7 @@ export function LoginForm() {
                 )}
               </button>
             </div>
-            <button type="submit">Login</button>
+            <button type="submit">Entrar</button>
           </StyledForm>
         </StyledLoginForm>
       )}

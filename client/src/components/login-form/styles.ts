@@ -7,10 +7,12 @@ export const StyledLoginForm = styled.div`
   justify-content: center;
   width: 80%;
   max-width: 400px;
-  border: solid 1px ${(props) => props.theme.lightTheme.bg};
+  border: solid 4px ${(props) => props.theme.lightTheme.bg};
+  border-radius: 10px;
   height: 400px;
   h2 {
     margin: 20px;
+    font-size: 40px;
   }
 `;
 
@@ -74,5 +76,6 @@ export const StyledForm = styled.form<StyledFormProps>`
     border: none;
     background-color: ${(props) => props.theme.darkTheme.fg};
     cursor: pointer;
+    font-size: 25px;
   }
 `;
