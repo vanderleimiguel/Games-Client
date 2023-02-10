@@ -5,10 +5,9 @@ import { ThemeProvider } from "styled-components";
 import { Login } from "./pages/login/login";
 import { Content, GlobalStyle, theme } from "./styles/global-styles";
 import { Home } from "./pages/Home/home";
-import { Footer } from "./components/footer/footer";
 import Header from "./components/header/header";
 import { CreateProfile } from "./pages/createProfile/createProfile";
-import { CreateUser } from "./pages/createLogin/createLogin";
+import { CreateUser } from "./pages/createUser/createUser";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -22,6 +21,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
             <Route path="/create-profile" element={<CreateProfile />} />
             <Route path="/update/:id" element={<CreateProfile />} />
             <Route path="/create-user" element={<CreateUser />} />
+            <Route path="/update-user/:id" element={<CreateUser />} />
           </Routes>
         </Content>
       </BrowserRouter>

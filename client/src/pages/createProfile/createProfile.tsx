@@ -1,6 +1,5 @@
 import { FormEvent, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { profileList } from "../../mocks/profileList";
 import { ProfileInput } from "../../utils/types/profile";
 import { ContentDiv } from "./styles";
 import { api } from "../../utils/api/api";

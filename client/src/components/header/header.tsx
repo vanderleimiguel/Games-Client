@@ -38,7 +38,15 @@ export default function Header() {
               Cadastrar Perfil
             </button>
           ) : null}
-
+          {localStorage.getItem("token") ? (
+            <button
+              onClick={() => {
+                navigate("/update-user/" + id);
+              }}
+            >
+              Editar Usuario
+            </button>
+          ) : null}
           {localStorage.getItem("token") ? (
             <button
               onClick={() => {

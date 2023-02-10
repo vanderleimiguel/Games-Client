@@ -7,6 +7,7 @@ import { UserInput } from "../../utils/types/requests";
 export function CreateUser() {
   const navigate = useNavigate();
   const { id } = useParams();
+  const isAdmin = false;
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -20,8 +21,9 @@ export function CreateUser() {
 
     let userResponse;
     if (id) {
-      const userToUpdate = { ...newUser, id: id };
-      // userResponse = await api.updateUser(userToUpdate, newUser);
+      const userToUpdate = { ...newUser, id: id, isAdmin: isAdmin };
+      console.log(userToUpdate);
+      userResponse = await api.updateUser(userToUpdate, newUser);
     } else {
       userResponse = await api.createUser(newUser);
     }

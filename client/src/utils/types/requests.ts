@@ -15,9 +15,12 @@ export type UserInput = {
 };
 
 export type User = {
-  Id: String;
+  id: String;
   Name: String;
   Email: String;
   Password: String;
   CPF: String;
+  isAdmin?: boolean;
+  createdAt?: String;
+  updatedAt?: String;
 };

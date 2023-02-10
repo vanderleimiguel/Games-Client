@@ -65,6 +65,19 @@ export const api = {
     }
   },
 
+  // Update User
+  updateUser: async (
+    userId: User,
+    user: UserInput
+  ): Promise<User | undefined> => {
+    try {
+      const updatedUser = await axios.patch("/user/" + userId.id, user);
+      return updatedUser.data;
+    } catch (err: any) {
+      handleError("Erro ao atualizar o usuario", err.response.data.message[0]);
+    }
+  },
+
   // Perfis home
   getProfiles: async (userId: string): Promise<Profile[] | undefined> => {
     try {
