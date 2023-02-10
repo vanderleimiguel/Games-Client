@@ -1,7 +1,6 @@
 import axios from "axios";
-import { profileList } from "../../mocks/profileList";
 import { Profile, ProfileInput } from "../types/profile";
-import { LoginRequest } from "../types/requests";
+import { LoginRequest, User, UserInput } from "../types/requests";
 import swal from "sweetalert";
 
 axios.defaults.baseURL = "https://xbox-live-api.onrender.com";
@@ -53,6 +52,16 @@ export const api = {
       return response.data;
     } catch (err: any) {
       handleError("Erro ao efetuar login", err.response.data.message[0]);
+    }
+  },
+
+  // create User
+  createUser: async (user: UserInput): Promise<User | undefined> => {
+    try {
+      const newUser = await axios.post("/user", user);
+      return newUser.data;
+    } catch (err: any) {
+      handleError("Erro ao criar usuario", err.response.data.message[0]);
     }
   },
 

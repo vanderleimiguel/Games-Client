@@ -63,6 +63,13 @@ export function LoginForm() {
                 )}
               </button>
             </div>
+            <button
+              onClick={() => {
+                navigate("/create-user/");
+              }}
+            >
+              Cadastrar
+            </button>
             <button type="submit">Entrar</button>
           </StyledForm>
         </StyledLoginForm>

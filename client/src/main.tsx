@@ -8,6 +8,7 @@ import { Home } from "./pages/Home/home";
 import { Footer } from "./components/footer/footer";
 import Header from "./components/header/header";
 import { CreateProfile } from "./pages/createProfile/createProfile";
+import { CreateUser } from "./pages/createLogin/createLogin";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
             <Route path="/home/:id" element={<Home />} />
             <Route path="/create-profile" element={<CreateProfile />} />
             <Route path="/update/:id" element={<CreateProfile />} />
+            <Route path="/create-user" element={<CreateUser />} />
           </Routes>
         </Content>
       </BrowserRouter>
