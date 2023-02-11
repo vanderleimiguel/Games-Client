@@ -51,7 +51,7 @@ export const api = {
       localStorage.setItem("token", response.data.token);
       return response.data;
     } catch (err: any) {
-      handleError("Erro ao efetuar login", err.response.data.message[0]);
+      handleError("Erro ao efetuar login", "");
     }
   },
 
@@ -61,7 +61,7 @@ export const api = {
       const newUser = await axios.post("/user", user);
       return newUser.data;
     } catch (err: any) {
-      handleError("Erro ao criar usuario", err.response.data.message[0]);
+      handleError("Erro ao criar usuario", "");
     }
   },
 
@@ -74,7 +74,21 @@ export const api = {
       const updatedUser = await axios.patch("/user/" + userId.id, user);
       return updatedUser.data;
     } catch (err: any) {
-      handleError("Erro ao atualizar o usuario", err.response.data.message[0]);
+      handleError("Erro ao atualizar o usuario", "");
+    }
+  },
+
+  // delete User
+  deleteUser: async (UserId: string): Promise<boolean | undefined> => {
+    try {
+      console.log(UserId);
+      const isDeletedUser = await axios.delete("/user/" + UserId);
+      console.log(isDeletedUser.status);
+      if (isDeletedUser.status === 204) {
+        return true;
+      }
+    } catch (err: any) {
+      handleError("Erro ao deletar Usuario", "");
     }
   },
 
@@ -84,10 +98,7 @@ export const api = {
       const profiles = await axios.get("/profile/" + userId);
       return profiles.data;
     } catch (err: any) {
-      handleError(
-        "Erro ao buscar todos os perfis",
-        err.response.data.message[0]
-      );
+      handleError("Erro ao buscar todos os perfis", "");
     }
   },
 
@@ -99,7 +110,7 @@ export const api = {
       const newProfile = await axios.post("/profile", profile);
       return newProfile.data;
     } catch (err: any) {
-      handleError("Erro ao criar perfil", err.response.data.message[0]);
+      handleError("Erro ao criar perfil", "");
     }
   },
 
@@ -113,7 +124,7 @@ export const api = {
         return true;
       }
     } catch (err: any) {
-      handleError("Erro ao deletar Perfil", err.response.data.message[0]);
+      handleError("Erro ao deletar Perfil", "");
     }
   },
 
@@ -128,7 +139,7 @@ export const api = {
       );
       return updatedProfile.data;
     } catch (err: any) {
-      handleError("Erro ao atualizar o perfil", err.response.data.message[0]);
+      handleError("Erro ao atualizar o perfil", "");
     }
   },
 };

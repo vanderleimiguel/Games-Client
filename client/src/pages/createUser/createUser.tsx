@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ContentDiv } from "./styles";
 import { api } from "../../utils/api/api";
 import { UserInput } from "../../utils/types/requests";
+import swal from "sweetalert";
 
 export function CreateUser() {
   const navigate = useNavigate();
@@ -22,7 +23,6 @@ export function CreateUser() {
     let userResponse;
     if (id) {
       const userToUpdate = { ...newUser, id: id, isAdmin: isAdmin };
-      console.log(userToUpdate);
       userResponse = await api.updateUser(userToUpdate, newUser);
     } else {
       userResponse = await api.createUser(newUser);
@@ -32,6 +32,37 @@ export function CreateUser() {
     if (userResponse) {
       navigate("/");
     }
+  }
+
+  async function DeleteUser() {
+    swal({
+      title: "Deletar Seu Usuario?",
+      text: "Tem certeza que deseja deletar seu usuario?",
+      icon: "warning",
+      dangerMode: true,
+      buttons: {
+        cancel: {
+          text: "Cancelar",
+          value: null,
+          visible: true,
+          closeModal: true,
+          className: "",
+        },
+        confirm: {
+          text: "Confirmar",
+          value: true,
+          visible: true,
+          closeModal: true,
+        },
+      },
+    }).then(async (res) => {
+      if (res) {
+        const isDeletedUser = await api.deleteUser(id ?? "");
+        if (isDeletedUser) {
+          navigate("/");
+        }
+      }
+    });
   }
 
   return (
@@ -47,6 +78,9 @@ export function CreateUser() {
         <label>CPF</label>
         <input type="text" name="userCPF" required></input>
         <button type="submit">{id ? "Atualizar" : "Cadastrar"}</button>
+        {localStorage.getItem("token") ? (
+          <button onClick={DeleteUser}>Deletar</button>
+        ) : null}
         <button
           onClick={() => {
             navigate("/");
