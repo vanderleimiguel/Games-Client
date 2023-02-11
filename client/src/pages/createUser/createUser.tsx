@@ -74,7 +74,7 @@ export function CreateUser() {
         <label>Email do usuario</label>
         <input type="text" name="userEmail" required></input>
         <label>Password</label>
-        <input type="text" name="userPassword" required></input>
+        <input type="password" name="userPassword" required></input>
         <label>CPF</label>
         <input type="text" name="userCPF" required></input>
         <button type="submit">{id ? "Atualizar" : "Cadastrar"}</button>
