@@ -27,15 +27,16 @@ export function LoginForm() {
 
     const userData = await api.login(loginPayload);
 
-    const id = userData.user.id;
-    localStorage.setItem("id", id);
-
-    setLoading(false);
-    if (!userData) {
+    if (userData) {
+      const id = userData.user.id;
+      localStorage.setItem("id", id);
+      setLoading(false);
+      navigate("/home/" + id);
+    } else {
+      setLoading(false);
+      navigate("/");
       setError(true);
       return;
-    } else {
-      navigate("/home/" + id);
     }
   }
 
